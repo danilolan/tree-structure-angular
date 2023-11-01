@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DbService } from 'src/app/services/db/db.service';
 
 @Component({
   selector: 'app-input',
@@ -8,8 +9,10 @@ import { Component } from '@angular/core';
 export class InputComponent {
   inputValue: string = '';
 
+  constructor(private dbService: DbService) {}
+
   submitInput() {
-    
+    this.dbService.setItem("test", this.inputValue);
     console.log(this.inputValue); // Exemplo: exibir o valor no console
   }
 }
