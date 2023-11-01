@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { DbService } from 'src/app/services/db/db.service';
 
 @Component({
@@ -6,6 +6,7 @@ import { DbService } from 'src/app/services/db/db.service';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
+
 export class InputComponent {
   @Input() parentId: number = 1;
   inputValue: string = '';

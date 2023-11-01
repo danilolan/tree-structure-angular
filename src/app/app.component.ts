@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InputComponent } from './components/input/input.component';
+import { TreeViewComponent } from './components/tree-view/tree-view.component';
 
 @Component({
   selector: 'app-root',
