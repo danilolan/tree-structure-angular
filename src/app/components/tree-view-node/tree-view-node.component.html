@@ -1,7 +1,11 @@
 {{ node.name }}
-<ul>
-  <li *ngFor="let child of getChildren(node)">
-    <app-tree-view-node [node]="child"></app-tree-view-node>
-  </li>
-</ul>
-<app-input [parentId]="node.id"></app-input>
+<ng-container *ngIf="node.open">
+  <ul>
+    <li *ngFor="let child of getChildren(node)">
+      <app-tree-view-node [node]="child"></app-tree-view-node>
+    </li>
+    <li>
+      <app-input [parentId]="node.id"></app-input>
+    </li>
+  </ul>
+</ng-container>

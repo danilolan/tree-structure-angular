@@ -9,7 +9,7 @@ import { TreeStructureService } from 'src/app/services/tree/tree.service';
 })
 
 export class InputComponent {
-  @Input() parentId: number = 1;
+  @Input() parentId: number | null = null;
   inputValue: string = '';
 
   constructor(private treeService: TreeStructureService) {}

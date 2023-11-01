@@ -15,10 +15,6 @@ export class TreeViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.tree = this.treeStructureService.getTree();
-  }
-
-  // Função para obter os filhos de um nó
-  getChildNodes(node: TreeNode): TreeNode[] {
-    return node.children;
+    console.log(this.tree)
   }
 }

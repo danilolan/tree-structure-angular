@@ -8,9 +8,8 @@ import { TreeNode } from 'src/app/models/treeNode';
   styleUrls: ['./tree-view-node.component.css']
 })
 export class TreeViewNodeComponent {
-  @Input() node: TreeNode = new TreeNode(1, "default");
+  @Input() node: TreeNode = new TreeNode(1, "default", false);
 
-  // Função para obter os filhos de um nó
   getChildren(node: TreeNode): TreeNode[] {
     return node.children;
   }

@@ -22,10 +22,18 @@ export class TreeStructureService {
     return this.root
   }
 
-  addChildToNode(parentId: number, childName: string): void {
+  addChildToNode(parentId: number | null, childName: string): void {
+    if(!parentId) {
+      const childNode = new TreeNode(this.generateUniqueId(), childName, false);
+      this.root.push(childNode);
+      this.saveTreeToLocalStorage();
+
+      return
+    }
+
     const parentNode = this.findNodeById(this.root, parentId);
     if (parentNode) {
-      const childNode = new TreeNode(this.generateUniqueId(), childName);
+      const childNode = new TreeNode(this.generateUniqueId(), childName, false);
       parentNode.children.push(childNode);
 
       this.saveTreeToLocalStorage();

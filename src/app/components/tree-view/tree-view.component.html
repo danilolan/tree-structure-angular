@@ -2,4 +2,7 @@
   <li *ngFor="let node of tree">
     <app-tree-view-node [node]="node"></app-tree-view-node>
   </li>
+  <li>
+    <app-input [parentId]="null"></app-input>
+  </li>
 </ul>
