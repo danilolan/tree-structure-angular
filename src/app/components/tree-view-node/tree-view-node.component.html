@@ -1,4 +1,6 @@
-{{ node.name }}
+<button (click)="toggleNodeOpen()">
+  {{ node.name }}
+</button>
 <ng-container *ngIf="node.open">
   <ul>
     <li *ngFor="let child of getChildren(node)">

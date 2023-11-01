@@ -13,4 +13,8 @@ export class TreeViewNodeComponent {
   getChildren(node: TreeNode): TreeNode[] {
     return node.children;
   }
+
+  toggleNodeOpen(): void {
+    this.node.open = !this.node.open;
+  }
 }
