@@ -39,7 +39,12 @@ export class TreeStructureService {
       this.saveTreeToLocalStorage();
     }
   }
+
+  toggleCheckedNode(id: number) {
+    const node = this.findNodeById(this.root, id);
   
+    this.saveTreeToLocalStorage();
+  }
 
   private findNodeById(nodes: TreeNode[], id: number): TreeNode | null {
     for (const node of nodes) {
@@ -55,6 +60,7 @@ export class TreeStructureService {
   }
 
   private saveTreeToLocalStorage(): void {
+    console.log(this.root)
     this.dbService.setItem('treeData', this.root);
   }
   

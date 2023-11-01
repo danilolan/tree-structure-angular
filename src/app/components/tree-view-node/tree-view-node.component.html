@@ -1,6 +1,11 @@
-<button (click)="toggleNodeOpen()">
-  {{ node.name }}
-</button>
+<div>
+  <input type="checkbox" [(ngModel)]="node.checked" (change)="toggleNodeChecked()">
+  <button (click)="toggleNodeOpen()">
+    <p>
+      {{ node.name }}
+    </p>
+  </button>
+</div>
 <ng-container *ngIf="node.open">
   <ul>
     <li *ngFor="let child of getChildren(node)">
