@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DbService } from '../db/db.service';
 
 export class TreeNode {
   id: number;
@@ -19,8 +20,14 @@ export class TreeNode {
 export class TreeStructureService {
   private root: TreeNode[];
 
-  constructor() {
-    this.root = [new TreeNode(1, 'Root')];
+  constructor(private dbService: DbService) {
+    const treeData = dbService.getItem('treeData');
+    if (treeData) {
+      this.root = treeData
+    } else {
+      this.root = [new TreeNode(1, 'Root')];
+      this.saveTreeToLocalStorage()
+    }
   }
 
   getTree(): TreeNode[] {
@@ -32,6 +39,9 @@ export class TreeStructureService {
     if (parentNode) {
       const childNode = new TreeNode(this.generateUniqueId(), childName);
       parentNode.children.push(childNode);
+
+      // Após adicionar um filho, atualize a árvore no localStorage
+      this.saveTreeToLocalStorage();
     }
   }
   
@@ -47,6 +57,10 @@ export class TreeStructureService {
       }
     }
     return null;
+  }
+
+  private saveTreeToLocalStorage(): void {
+    this.dbService.setItem('treeData', this.root);
   }
   
   private generateUniqueId(): number {

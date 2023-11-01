@@ -1,5 +1,6 @@
 import { Component, Input, NgModule } from '@angular/core';
 import { DbService } from 'src/app/services/db/db.service';
+import { TreeStructureService } from 'src/app/services/tree/tree.service';
 
 @Component({
   selector: 'app-input',
@@ -11,10 +12,11 @@ export class InputComponent {
   @Input() parentId: number = 1;
   inputValue: string = '';
 
-  constructor(private dbService: DbService) {}
+  constructor(private treeService: TreeStructureService) {}
 
+  //#TODO input validations
   submitInput() {
-    this.dbService.setItem("test", this.inputValue);
+    this.treeService.addChildToNode(this.parentId, this.inputValue);
     console.log(this.parentId);
   }
 }
