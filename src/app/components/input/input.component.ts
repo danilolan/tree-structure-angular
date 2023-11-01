@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DbService } from 'src/app/services/db/db.service';
 
 @Component({
@@ -7,12 +7,13 @@ import { DbService } from 'src/app/services/db/db.service';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
+  @Input() parentId: number = 1;
   inputValue: string = '';
 
   constructor(private dbService: DbService) {}
 
   submitInput() {
     this.dbService.setItem("test", this.inputValue);
-    console.log(this.inputValue); // Exemplo: exibir o valor no console
+    console.log(this.parentId);
   }
 }
