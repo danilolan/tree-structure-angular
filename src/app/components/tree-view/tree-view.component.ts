@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TreeNode, TreeStructureService } from 'src/app/services/tree/tree.service';
+import { TreeStructureService } from 'src/app/services/tree/tree.service';
 import { TreeViewNodeComponent } from '../tree-view-node/tree-view-node.component';
+import { TreeNode } from 'src/app/models/treeNode';
 
 @Component({
   selector: 'app-tree-view',
@@ -8,7 +9,7 @@ import { TreeViewNodeComponent } from '../tree-view-node/tree-view-node.componen
   styleUrls: ['./tree-view.component.css']
 })
 export class TreeViewComponent implements OnInit {
-  tree: TreeNode[] = [new TreeNode(1, "root")];
+  tree: TreeNode[] = [];
 
   constructor(private treeStructureService: TreeStructureService) {}
 

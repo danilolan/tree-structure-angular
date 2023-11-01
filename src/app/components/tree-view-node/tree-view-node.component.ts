@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { TreeNode } from 'src/app/services/tree/tree.service';
 import { InputComponent } from '../input/input.component';
+import { TreeNode } from 'src/app/models/treeNode';
 
 @Component({
   selector: 'app-tree-view-node',

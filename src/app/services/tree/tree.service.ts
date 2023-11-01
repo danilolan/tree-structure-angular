@@ -1,18 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DbService } from '../db/db.service';
-
-export class TreeNode {
-  id: number;
-  name: string;
-  checked: boolean;
-  children: TreeNode[] = [];
-
-  constructor(id: number, name: string) {
-    this.id = id;
-    this.name = name;
-    this.checked = false;
-  }
-}
+import { TreeNode } from 'src/app/models/treeNode';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +13,7 @@ export class TreeStructureService {
     if (treeData) {
       this.root = treeData
     } else {
-      this.root = [new TreeNode(1, 'Root')];
+      this.root = [];
       this.saveTreeToLocalStorage()
     }
   }
@@ -40,7 +28,6 @@ export class TreeStructureService {
       const childNode = new TreeNode(this.generateUniqueId(), childName);
       parentNode.children.push(childNode);
 
-      // Após adicionar um filho, atualize a árvore no localStorage
       this.saveTreeToLocalStorage();
     }
   }
