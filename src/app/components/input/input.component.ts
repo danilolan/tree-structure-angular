@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.css']
+})
+export class InputComponent {
+  inputValue: string = '';
+
+  submitInput() {
+    
+    console.log(this.inputValue); // Exemplo: exibir o valor no console
+  }
+}
