@@ -43,22 +43,8 @@ export class TreeStructureService {
   toggleCheckedNode(id: number) {
     const node = this.findNodeById(this.root, id);
   
-    if (node) {
-      this.setChildrenChecked(node, node.checked);
-  
-      this.saveTreeToLocalStorage();
-    } else {
-      console.error(`Node with ID ${id} not found.`);
-    }
+    this.saveTreeToLocalStorage();
   }
-  
-  private setChildrenChecked(node: TreeNode, checked: boolean) {
-    for (const child of node.children) {
-      child.checked = checked;
-      this.setChildrenChecked(child, checked);
-    }
-  }
-  
 
   private findNodeById(nodes: TreeNode[], id: number): TreeNode | null {
     for (const node of nodes) {
