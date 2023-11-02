@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #E6E9F0;
+  color: #2B292B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
