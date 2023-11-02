@@ -1,4 +1,5 @@
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, ElementRef, Input, NgModule, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { DbService } from 'src/app/services/db/db.service';
 import { TreeStructureService } from 'src/app/services/tree/tree.service';
 
@@ -13,6 +14,14 @@ export class InputComponent {
   @Input() inputValue: string = '';
 
   constructor(private treeService: TreeStructureService) {}
+
+  @ViewChild("myinput") myInputField: ElementRef;
+  userForm: FormGroup;
+
+  ngAfterViewInit(): void {
+    // Set focus to the firstName field
+    this.myInputField.nativeElement.focus();
+  }
 
   //#TODO input validations
   submitInput() {

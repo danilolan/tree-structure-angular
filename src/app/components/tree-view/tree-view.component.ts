@@ -18,6 +18,6 @@ export class TreeViewComponent implements OnInit {
   }
 
   addNode(): void {
-    this.treeStructureService.addChildToNode(null, "Default")
+    this.treeStructureService.addChildToNode(null, "")
   }
 }

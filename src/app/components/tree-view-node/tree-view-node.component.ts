@@ -29,6 +29,6 @@ export class TreeViewNodeComponent {
     this.treeStructureService.deleteNode(this.node.id)
   }
   addNode(): void {
-    this.treeStructureService.addChildToNode(this.node.id, "Default")
+    this.treeStructureService.addChildToNode(this.node.id, "")
   }
 }
