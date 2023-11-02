@@ -36,10 +36,17 @@ input[type=checkbox]
   padding: 10px;
 }
 
-/* Might want to wrap a span around your checkbox text */
 .checkboxtext
 {
-  /* Checkbox text */
   font-size: 110%;
   display: inline;
+}
+
+.rotate-icon {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease; 
+}
+
+.icon {
+  cursor: pointer;
 }
