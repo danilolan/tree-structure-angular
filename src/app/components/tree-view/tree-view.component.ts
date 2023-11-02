@@ -16,4 +16,8 @@ export class TreeViewComponent implements OnInit {
   ngOnInit(): void {
     this.tree = this.treeStructureService.getTree();
   }
+
+  addNode(): void {
+    this.treeStructureService.addChildToNode(null, "")
+  }
 }

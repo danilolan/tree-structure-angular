@@ -51,6 +51,49 @@ export class TreeStructureService {
       console.error(`Node with ID ${id} not found.`);
     }
   }
+
+  deleteNode(id: number) {
+    const parentNode = this.findParentNodeById(this.root, id);
+
+    if (parentNode) {    
+      const index = parentNode.children.findIndex(child => child.id === id);
+      if (index !== -1) {       
+        parentNode.children.splice(index, 1); 
+        this.saveTreeToLocalStorage();
+      }
+      return
+    }
+
+    const index = this.root.findIndex(node => node.id === id);
+      if (index !== -1) {  
+        this.root.splice(index, 1);
+        this.saveTreeToLocalStorage();
+      }
+  }
+
+  editNode(id: number, value: string) {
+    const nodeToEdit = this.findNodeById(this.root, id);
+
+    if (nodeToEdit) {
+      nodeToEdit.name = value;
+      this.saveTreeToLocalStorage();
+    } else {
+      console.error(`Node with ID ${id} not found.`);
+    }
+  }
+
+  private findParentNodeById(nodes: TreeNode[], id: number): TreeNode | null {
+    for (const node of nodes) {
+      if (node.children.some(child => child.id === id)) {
+        return node;
+      }
+      const foundNode = this.findParentNodeById(node.children, id);
+      if (foundNode) {
+        return foundNode;
+      }
+    }
+    return null;
+  }
   
   private setChildrenChecked(node: TreeNode, checked: boolean) {
     for (const child of node.children) {
@@ -79,7 +122,7 @@ export class TreeStructureService {
   }
   
   private generateUniqueId(): number {
-    //#TODO generate a uuid
+    
     return Date.now();
   }
 }

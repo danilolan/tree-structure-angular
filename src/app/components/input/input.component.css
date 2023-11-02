@@ -1,9 +1,9 @@
 input {
-  font-size: small;
-  border: 1px solid #4F4F4F;
+  font-size: medium;
+  padding: 0px;
+  border: none;
   color: #4F4F4F;
-  padding: 8px;
   border-radius: 5px;
-  width: 200px;
   margin-left: 7px;
+  width: 100%;
 }

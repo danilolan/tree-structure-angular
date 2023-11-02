@@ -1,3 +1,16 @@
 ul {
   list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  padding: 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-icon {
+  color: #0DAF5E;
 }
