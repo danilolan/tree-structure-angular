@@ -71,6 +71,17 @@ export class TreeStructureService {
       }
   }
 
+  editNode(id: number, value: string) {
+    const nodeToEdit = this.findNodeById(this.root, id);
+
+    if (nodeToEdit) {
+      nodeToEdit.name = value;
+      this.saveTreeToLocalStorage();
+    } else {
+      console.error(`Node with ID ${id} not found.`);
+    }
+  }
+
   private findParentNodeById(nodes: TreeNode[], id: number): TreeNode | null {
     for (const node of nodes) {
       if (node.children.some(child => child.id === id)) {

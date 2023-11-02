@@ -3,6 +3,10 @@
     <app-tree-view-node [node]="node"></app-tree-view-node>
   </li>
   <li>
-    <app-input [parentId]="null"></app-input>
+    <button (click)="addNode()">
+      <span class="material-icons add-icon">
+        add_box
+      </span>
+    </button>
   </li>
 </ul>

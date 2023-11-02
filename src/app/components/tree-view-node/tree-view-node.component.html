@@ -3,11 +3,9 @@
     play_arrow
   </span>
   <input type="checkbox" [(ngModel)]="node.checked" (change)="toggleNodeChecked()" class="checkbox">
-  <button (click)="toggleNodeOpen()">
-    <p>
-      {{ node.name }}
-    </p>
-  </button>
+  <p>
+    <app-input [nodeId]="node.id" [inputValue]="node.name"></app-input>
+  </p>
   <span (click)="deleteNode()" class="material-icons delete-icon">
     delete
   </span>
@@ -18,7 +16,11 @@
       <app-tree-view-node [node]="child"></app-tree-view-node>
     </li>
     <li>
-      <app-input [parentId]="node.id"></app-input>
+      <button (click)="addNode()">
+        <span class="material-icons add-icon">
+          add_box
+        </span>
+      </button>
     </li>
   </ul>
 </ng-container>

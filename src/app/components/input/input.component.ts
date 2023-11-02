@@ -9,14 +9,14 @@ import { TreeStructureService } from 'src/app/services/tree/tree.service';
 })
 
 export class InputComponent {
-  @Input() parentId: number | null = null;
-  inputValue: string = '';
+  @Input() nodeId: number = 1;
+  @Input() inputValue: string = '';
 
   constructor(private treeService: TreeStructureService) {}
 
   //#TODO input validations
   submitInput() {
-    this.treeService.addChildToNode(this.parentId, this.inputValue);
+    this.treeService.editNode(this.nodeId, this.inputValue);
     this.inputValue = '';
   }
 }

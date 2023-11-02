@@ -3,3 +3,13 @@ ul {
   margin: 0px;
   padding: 0px;
 }
+
+button {
+  padding: 0px;
+  background: none;
+  border: none;
+}
+
+.add-icon {
+  color: #0DAF5E;
+}
