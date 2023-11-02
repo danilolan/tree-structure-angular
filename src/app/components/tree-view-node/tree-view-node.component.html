@@ -1,5 +1,8 @@
-<div>
-  <input type="checkbox" [(ngModel)]="node.checked" (change)="toggleNodeChecked()">
+<div class="row-container">
+  <span (click)="toggleNodeOpen()" [ngClass]="{'material-icons': true, 'rotate-icon': node.open}" class="icon">
+    play_arrow
+  </span>
+  <input type="checkbox" [(ngModel)]="node.checked" (change)="toggleNodeChecked()" class="checkbox">
   <button (click)="toggleNodeOpen()">
     <p>
       {{ node.name }}
