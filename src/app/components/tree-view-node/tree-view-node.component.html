@@ -1,5 +1,5 @@
 <div class="row-container">
-  <span (click)="toggleNodeOpen()" [ngClass]="{'material-icons': true, 'rotate-icon': node.open}" class="icon">
+  <span (click)="toggleNodeOpen()" [ngClass]="{'material-icons': true, 'rotate-icon': node.open}" class="arrow-icon">
     play_arrow
   </span>
   <input type="checkbox" [(ngModel)]="node.checked" (change)="toggleNodeChecked()" class="checkbox">
@@ -8,6 +8,9 @@
       {{ node.name }}
     </p>
   </button>
+  <span (click)="deleteNode()" class="material-icons delete-icon">
+    delete
+  </span>
 </div>
 <ng-container *ngIf="node.open">
   <ul>

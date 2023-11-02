@@ -47,6 +47,12 @@ input[type=checkbox]
   transition: transform 0.3s ease; 
 }
 
-.icon {
+.arrow-icon {
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: #E24A43;
+  margin-left: auto;
   cursor: pointer;
 }

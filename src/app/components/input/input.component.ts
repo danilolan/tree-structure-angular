@@ -17,5 +17,6 @@ export class InputComponent {
   //#TODO input validations
   submitInput() {
     this.treeService.addChildToNode(this.parentId, this.inputValue);
+    this.inputValue = '';
   }
 }

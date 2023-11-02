@@ -24,4 +24,8 @@ export class TreeViewNodeComponent {
   toggleNodeChecked(): void {
     this.treeStructureService.toggleCheckedNode(this.node.id)
   }
+
+  deleteNode(): void {
+    this.treeStructureService.deleteNode(this.node.id)
+  }
 }
