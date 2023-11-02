@@ -1,2 +1,3 @@
-<input type="text" [(ngModel)]="inputValue" placeholder="Digite algo">
-<button (click)="submitInput()">Enviar</button>
+<form (submit)="submitInput()">
+  <input name="name" type="text" [(ngModel)]="inputValue" placeholder="Enter a name..">
+</form>
